@@ -33,13 +33,30 @@ class UsersView(View):
 
             if categorize == 'gender':
                 # Organizar por género si el parámetro 'categorize' es 'gender'
-                female = [user for user in unique_users if user['gender'] == 'female']
-                male = [user for user in unique_users if user['gender'] == 'male']
-                organized_data = {'female': female, 'male': male}
-                return JsonResponse({'results': organized_data})
+                organized_data = {'female': [], 'male': []}
+                
+                for user in unique_users:
+                    if user['gender'] == 'female':
+                        organized_data['female'].append(self.filter_fields(user))
+                    elif user['gender'] == 'male':
+                        organized_data['male'].append(self.filter_fields(user))
             else:
                 # Devolver los datos únicos como JSON si no hay categorización por género
-                return JsonResponse({'results': unique_users[:limit]})
+                organized_data = [self.filter_fields(user) for user in unique_users[:limit]]
+
+            return JsonResponse({'results': organized_data})
         else:
             return JsonResponse({'error': 'Error al obtener usuarios aleatorios'}, status=500)
+
+    def filter_fields(self, user):
+        # Filtrar los campos que deseas incluir en la respuesta JSON
+        return {
+            'gender': user['gender'],
+            'name': user['name'],
+            'location': user['location'],
+            'email': user['email'],
+            'dob': user['dob'],
+            'phone': user['phone'],
+            'cell': user['cell'],            
+        }
 
