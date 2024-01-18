@@ -2,12 +2,6 @@
 
 Este pequeño proyecto es desarrollado como Prueba Técnica para el desarrollo de una API utilizando la API https://randomuser.me/documentation. La API desarrollada en este respositorio está diseñada para obtener un listado de 10 usuarios aleatorios, cuidando la confidencialidad de los datos sensibles. Además permite que se puedan filtrar/organizar por género y que se puedan traer un número especifico de usuarios dependiendo de la necesidad del cliente. Esta API fue desarrollada usando djangorestframework. 
 
-**Indice**
-
-[TOCM]
-
-[TOC]
-
 
 # Instalación
 
