@@ -34,7 +34,7 @@ Puedes usar el siguiente comando:
 
 -------------
 
-#¿Cómo usar esta API?
+# ¿Cómo usar esta API?
 
 La aplicación Django expone una API que organiza y filtra los datos de RandomUser a la que puedes acceder una vez ejecutes el servidor. 
 
